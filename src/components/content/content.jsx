@@ -6,13 +6,10 @@ import style from './content.module.css'
 const { Content } = Layout;
 
 class MyContent extends Component {
-  constructor() {
-    super()
-        this.state = {
-          isLoggedIn: false
-        }
-    
-  }  
+  componentDidMount() {
+    this.props.getWeather()
+    console.log(this.props)
+  }
   render () {
         return (
                 <div>
@@ -20,14 +17,8 @@ class MyContent extends Component {
                     <Content className={style.content}>
                       <div className="site-layout-content">
                        {
-                         this.state.isLoggedIn 
-                         ? <div>
-                            <h1>You are currently logged in</h1>
-                           </div>
-                         : <div>
-                            <h1>You are currently logged out</h1>
-                           </div>
-                       } 
+                         console.log(this.props)
+                       }
                       </div>
                     </Content>
                   </Layout>
@@ -35,5 +26,7 @@ class MyContent extends Component {
         )
     }
 }
+
+
 
 export default MyContent;

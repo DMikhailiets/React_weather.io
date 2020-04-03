@@ -4,17 +4,26 @@ import { Layout } from 'antd';
 import MyHeader from './components/header/header';
 import MyFooter from './components/footer/footer';
 import MyContent from './components/content/content';
+import { connect } from 'react-redux';
+import { getWeather } from './redux/weatherReducer';
 
-function App() {
-  return (
-    <div className="App">
-      <Layout>
-        <MyHeader/>
-        <MyContent/>
-        <MyFooter/>
-      </Layout>
-    </div>
-  );
+
+class App extends React.Component {
+  render(){
+    return (
+      <div className="App">
+        <Layout>
+          <MyHeader/>
+          <MyContent getWeather={this.props.getWeather}/>
+          <MyFooter/>
+        </Layout>
+      </div>
+    );
+  }
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+  weather: state.weather
+})
+
+export default connect(mapStateToProps, {getWeather});

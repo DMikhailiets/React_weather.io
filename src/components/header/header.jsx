@@ -10,7 +10,7 @@ class MyHeader extends Component {
                   <Layout>
                     <Header>
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-                    <Menu.Item key="1">Header</Menu.Item> 
+                    <Menu.Item key="1">Class components</Menu.Item> 
                   </Menu>
                     </Header>
                   </Layout>
