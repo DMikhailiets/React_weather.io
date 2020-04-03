@@ -8,7 +8,12 @@ const weatherReducer = (state=initialState, action) => {
     switch(action.type){
         case SET_WEATHER: {
             return {
-                ...state, weather: action.weather
+                ...state,  weather: action.weather
+            }
+        }
+        default: {
+            return {
+                ...state
             }
         }
     }

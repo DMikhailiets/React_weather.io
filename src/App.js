@@ -14,7 +14,7 @@ class App extends React.Component {
       <div className="App">
         <Layout>
           <MyHeader/>
-          <MyContent getWeather={this.props.getWeather}/>
+          <MyContent weather={this.props.weather} getWeather={this.props.getWeather}/>
           <MyFooter/>
         </Layout>
       </div>
@@ -26,4 +26,4 @@ let mapStateToProps = (state) => ({
   weather: state.weather
 })
 
-export default connect(mapStateToProps, {getWeather});
+export default connect(mapStateToProps, {getWeather})(App);

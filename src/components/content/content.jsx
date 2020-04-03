@@ -8,17 +8,17 @@ const { Content } = Layout;
 class MyContent extends Component {
   componentDidMount() {
     this.props.getWeather()
-    console.log(this.props)
   }
   render () {
+    console.log(this.props)
         return (
                 <div>
                   <Layout>
                     <Content className={style.content}>
                       <div className="site-layout-content">
-                       {
-                         console.log(this.props)
-                       }
+                       <div>
+                          <h2>Your location is {this.props.weather.weather.data}</h2>
+                       </div>
                       </div>
                     </Content>
                   </Layout>
