@@ -23,7 +23,7 @@ class App extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  weather: state.weather
+  weather: state.weather.weather
 })
 
 export default connect(mapStateToProps, {getWeather})(App);

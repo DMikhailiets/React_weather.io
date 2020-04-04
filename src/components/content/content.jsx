@@ -17,7 +17,11 @@ class MyContent extends Component {
                     <Content className={style.content}>
                       <div className="site-layout-content">
                        <div>
-                          <h2>Your location is {this.props.weather.weather.data}</h2>
+                         {(!this.props.weather)
+                          ? <h2>Wait...</h2>
+                          : <h2>Your location is {this.props.weather.city_name}</h2>
+                         }
+                          
                        </div>
                       </div>
                     </Content>

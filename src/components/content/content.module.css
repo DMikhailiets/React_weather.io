@@ -2,4 +2,8 @@
     margin: 15px 15px;
     background-color: white;
     height: 73vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

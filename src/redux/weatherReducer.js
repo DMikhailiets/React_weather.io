@@ -2,13 +2,15 @@ import { weatherAPi } from "../API/api"
 
 const SET_WEATHER = 'SET_WEATHER'
 
-let initialState = {}
+let initialState = {
+    weather: null
+}
 
 const weatherReducer = (state=initialState, action) => {
     switch(action.type){
         case SET_WEATHER: {
             return {
-                ...state,  weather: action.weather
+                weather: action.weather.data.data[0]
             }
         }
         default: {
