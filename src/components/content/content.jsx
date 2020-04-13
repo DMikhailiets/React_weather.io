@@ -9,8 +9,8 @@ import ChooseLocationFormRedux from './choose_location/choose_location';
 const { Content } = Layout;
 
 class MyContent extends Component {
- 
-  showLocation = (value) => {
+  showLocation = (formData) => {
+    console.log(formData)
     this.props.setLocation()
   }
   componentDidMount() {
