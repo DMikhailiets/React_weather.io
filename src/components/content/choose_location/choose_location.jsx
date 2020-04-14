@@ -9,7 +9,7 @@ const ChooseLocation = (props)=> {
     return(
         <div> 
             <form  className={style.location_form} onSubmit={props.handleSubmit}>
-                <Field label="Location" name="Location" id="Location" component={AntdInput} type="input"/>
+                <Field label="Location" name="Location" id="Location" placeholder="Choose your location"component={AntdInput} type="input"/>
                 <AntdButton type="primary" textbutton='Submit' htmlType="submit" style={{ marginRight: "10px" }}/>
             </form>
         </div>

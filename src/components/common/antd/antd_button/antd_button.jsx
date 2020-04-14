@@ -4,7 +4,7 @@ import { Button } from 'antd'
 const AntdButton = (props) => {
     return (
         <div>
-            <Button {...props}> {props.textbutton} </Button>
+            <Button {...props}>{props.textbutton}</Button>
         </div>
     )
 }
