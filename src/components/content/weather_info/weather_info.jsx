@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'antd'
 
 class WeatherInfo extends React.Component {
     render(){
@@ -28,6 +29,7 @@ class WeatherInfo extends React.Component {
                 <div>
                     <span> station {this.props.weather.station}</span>
                 </div>
+                <Button style={{marginTop: 25}}type='primary'onClick={this.props.setDefaultState}> Set default state</Button>
             </div>
         )
     }

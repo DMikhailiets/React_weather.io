@@ -1,10 +1,10 @@
 import React from 'react'
 import { Input } from 'antd'
 
-const AntdInput = (props) => {
+const AntdInput = ({input, meta, ...props}) => {
     return (
         <div>
-            <Input/>
+            <Input {...input} {...props}/>
         </div>
     )
 }

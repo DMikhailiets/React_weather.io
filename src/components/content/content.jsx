@@ -9,31 +9,29 @@ import ChooseLocationFormRedux from './choose_location/choose_location';
 const { Content } = Layout;
 
 class MyContent extends Component {
-  showLocation = (formData) => {
-    console.log(formData)
-    this.props.setLocation()
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+     if(this.props.location !== prevProps.location && this.props.location !== null ){
+      this.props.getWeather(this.props.location)
+     }
   }
-  componentDidMount() {
-    // this.props.getWeather()
-  }
+
   render () {
-    console.log(this.props)
         return (
-                <div>
-                  <Layout>
-                    <Content className={style.content}>
-                      <div className="site-layout-content">
-                       <div>
-                         {(!this.props.weather)
-                          ? <ChooseLocationFormRedux onSubmit={this.showLocation}/>
-                          : <WeatherInfo {...this.props}/>
-                         }
-                          
-                       </div>
-                      </div>
-                    </Content>
-                  </Layout>
-                </div>
+            <div>
+              <Layout>
+                <Content className={style.content}>
+                  <div className="site-layout-content">
+                    <div>
+                      {(!this.props.location || !this.props.weather)
+                      ? <ChooseLocationFormRedux location={this.props.weather} onSubmit={this.props.setLocation}/>
+                      : <WeatherInfo {...this.props}/>
+                      }
+                    </div>
+                  </div>
+                </Content>
+              </Layout>
+            </div>
         )
     }
 }

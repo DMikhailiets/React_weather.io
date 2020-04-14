@@ -2,6 +2,7 @@ import { weatherAPi } from "../API/api"
 
 const SET_WEATHER = 'SET_WEATHER'
 const SET_LOCATION = 'SET_LOCATION'
+const SET_DEFAULT_STATE = 'SET_DEFAULT_STATE'
 
 let initialState = {
     weather: null,
@@ -17,7 +18,12 @@ const weatherReducer = (state=initialState, action) => {
         }
         case SET_LOCATION: {
             return {
-                ...state, location: action.location
+                ...state, location: action.location.Location
+            }
+        }case SET_DEFAULT_STATE: {
+            return {
+                ...state, weather: null,
+                          location: null
             }
         }
         default: {
@@ -30,10 +36,17 @@ const weatherReducer = (state=initialState, action) => {
 
 const setWeather = (weather) => ({type: SET_WEATHER, weather})
 export const setLocation = (location) => ({type: SET_LOCATION, location}) 
+export const setDefaultState = () => ({type: SET_DEFAULT_STATE})
 
-export const getWeather = () => async (dispatch) => {
-    let response = await weatherAPi.getWeather()
-    dispatch(setWeather(response))
+export const getWeather = (location) => async (dispatch) => {
+    let response = await weatherAPi.getWeather(location)
+    if(response.status !== 200){
+        console.log(`some error with response ststus ${response.status}`)
+        setDefaultState()
+    }else{
+        dispatch(setWeather(response))
+    }
+
 }
 
 export default weatherReducer
